@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="home">#f4ab29</color>
+    <color name="clock">#5538b0</color>
+    <color name="folder">#a9418f</color>
+    <color name="menu">#4290a3</color>
+    <color name="black">#000000</color>
 </resources>
