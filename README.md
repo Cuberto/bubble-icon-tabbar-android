@@ -135,4 +135,4 @@ Cuberto Design, info@cuberto.com
 
 ## License
 
-BubbleIconTabBar is available under the MIT license. See the LICENSE file for more info.
+BubbleTabBar is available under the MIT license. See the LICENSE file for more info.
