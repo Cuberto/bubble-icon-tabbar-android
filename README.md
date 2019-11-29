@@ -125,7 +125,7 @@ Call tabBubbleAnimator onStart() and onStop() in appropriate activity methods
         }
 ```
 
-## IOS
+## iOS
 
 Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by [Cuberto](https://github.com/Cuberto)
 
