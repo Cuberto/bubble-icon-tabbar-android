@@ -1,6 +1,6 @@
-# BubbleIconTabBar
+# BubbleTabBar
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Cuberto/flashy-tabbar/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Cuberto/bubble-icon-tabbar-android/master/LICENSE)
 
 ![Animation](https://raw.githubusercontent.com/Cuberto/bubble-icon-tabbar-android/master/Screenshots/animation.gif)
 
