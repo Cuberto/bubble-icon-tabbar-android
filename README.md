@@ -17,33 +17,22 @@ Add materialdesign library to your project
 
 ```
     dependencies {
-    //your project depencies here
-    implementation "com.google.android.material:material:1.0.0"
+        //your project depencies here
+        implementation "com.google.android.material:material:1.0.0"
     } 
 ```
 
-### Download
+### As library
 
-Add this code to your app level build.gradle
-
-```
-    android {
-        //
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/Cuberto/bubble-icon-tabbar-android")
-            }
-        }
-    }
-```
-Then add library to your dependencies
+Clone this project and run bubbleicontabbarandroid assemble build variant. Then you should copy `buubleicontabbarandroid/build/outputs/aar/bubbleicontabbarandroid-release.aar` to your app module `libs` package and add this to your dependencies
 ```
     dependencies {
-    //your project depencies here
-    implementation 'com.cuberto.bubbleicontabbarandroid:bubbleicontabbarandroid:1.0.1'
-    } 
+        //your project depencies here
+        implementation fileTree(dir: 'libs', include: ['*.aar'])
+    }
+
 ```
+Sync project and now you can use bubbleicontabbar library
 
 ### Manual
 
