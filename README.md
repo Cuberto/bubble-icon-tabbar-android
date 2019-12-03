@@ -24,13 +24,45 @@ Add materialdesign library to your project
 
 ### As library
 
-Clone this project and run bubbleicontabbarandroid assemble build variant. Then you should copy `buubleicontabbarandroid/build/outputs/aar/bubbleicontabbarandroid-release.aar` to your app module `libs` package and add this to your dependencies
+Step 1 : Generate a Personal Access Token for GitHub
+- Inside you GitHub account:
+- Settings -> Developer Settings -> Personal Access Tokens -> Generate new token
+- Make sure you select the following scopes (“ read:packages”) and Generate a token
+- After Generating make sure to copy your new personal access token. You cannot see it again! The only option is to generate a new key.
+
+Step 2: Store your GitHub — Personal Access Token details
+- Create a github.properties file within your root Android project
+- In case of a public repository make sure you add this file to .gitignore for keep the token private
+- Add properties gpr.usr=GITHUB_USERID and gpr.key=PERSONAL_ACCESS_TOKEN
+- Replace GITHUB_USERID with personal / organisation Github User ID and PERSONAL_ACCESS_TOKEN with the token generated in #Step 1
+
+Step 3 : Update build.gradle inside the application module
+- Add the following code to build.gradle inside the app module that will be using the library
+```
+    def githubProperties = new Properties()
+    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+    repositories {
+        maven {
+            name = "GitHubPackages"
+
+            url = uri("https://maven.pkg.github.com/Cuberto/bubble-icon-tabbar-android")
+            credentials {
+                /** Create github.properties in root project folder file with     
+                ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN 
+                ** Or set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+```
+- inside dependencies of the build.gradle of app module, use the following code
 ```
     dependencies {
-        //your project depencies here
-        implementation fileTree(dir: 'libs', include: ['*.aar'])
+        //consume library
+        implementation 'com.cuberto.bubbleicontabbarandroid:bubbleicontabbarandroid:1.0.1'
+        ....
     }
-
 ```
 Sync project and now you can use bubbleicontabbar library
 
@@ -43,7 +75,7 @@ Add `TabBubbleAnimator` `TextColorTransition` and content of res package to your
 Add TabLayout to your xml with tabGravity="fill", tabIndicatorHeight="0dp" and tabMode="fixed"
 
 ```
-<com.google.android.material.tabs.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
