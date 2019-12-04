@@ -24,6 +24,8 @@ Add materialdesign library to your project
 
 ### As library
 
+#### GitHub Packages
+
 Step 1 : Generate a Personal Access Token for GitHub
 - Inside you GitHub account:
 - Settings -> Developer Settings -> Personal Access Tokens -> Generate new token
@@ -63,6 +65,18 @@ Step 3 : Update build.gradle inside the application module
         implementation 'com.cuberto.bubbleicontabbarandroid:bubbleicontabbarandroid:1.0.1'
         ....
     }
+```
+Sync project and now you can use bubbleicontabbar library
+
+#### Android Archive Library
+
+[Download](https://github.com/Cuberto/bubble-icon-tabbar-android/packages/68239) bubbleicontabbarandroid-1.0.1.aar from assets, add it to your app module `libs` package and add this to your dependencies
+```
+    dependencies {
+        //your project depencies here
+        implementation fileTree(dir: 'libs', include: ['*.aar'])
+    }
+
 ```
 Sync project and now you can use bubbleicontabbar library
 
