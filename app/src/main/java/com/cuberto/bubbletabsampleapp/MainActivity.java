@@ -1,5 +1,6 @@
 package com.cuberto.bubbletabsampleapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         tabBubbleAnimator.addTabItem(titles[1], R.drawable.ic_clock,colors[1]);
         tabBubbleAnimator.addTabItem(titles[2], R.drawable.ic_folder, colors[2]);
         tabBubbleAnimator.addTabItem(titles[3], R.drawable.ic_menu, colors[3]);
+        tabBubbleAnimator.setUnselectedColorId(Color.BLACK);
         tabBubbleAnimator.highLightTab(0);
         viewPager.addOnPageChangeListener(tabBubbleAnimator);
     }

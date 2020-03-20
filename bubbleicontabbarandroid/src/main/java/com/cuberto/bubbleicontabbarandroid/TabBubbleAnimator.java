@@ -31,6 +31,7 @@ public class TabBubbleAnimator extends ViewPager.SimpleOnPageChangeListener {
     private final List<Integer> mFragmentIconList = new ArrayList<>();
     private final List<Integer> mFragmentColorList = new ArrayList<>();
     private TabLayout tabLayout;
+    private int unselectedColorId = Color.BLACK;
 
     public TabBubbleAnimator(TabLayout tabLayout) {
         this.tabLayout = tabLayout;
@@ -50,11 +51,11 @@ public class TabBubbleAnimator extends ViewPager.SimpleOnPageChangeListener {
         ImageView bg = view.findViewById(R.id.bg);
         bg.setVisibility(isSelected ? VISIBLE : INVISIBLE);
         TextView tabTextView = view.findViewById(R.id.tabTextView);
-        tabTextView.setTextColor(isSelected ? getColor(mFragmentColorList.get(position)) : Color.BLACK);
+        tabTextView.setTextColor(isSelected ? getColor(mFragmentColorList.get(position)) : unselectedColorId);
         tabTextView.setVisibility(isSelected ? VISIBLE : GONE);
         ImageView tabImageView = view.findViewById(R.id.tabImageView);
         tabImageView.setImageResource(mFragmentIconList.get(position));
-        tabImageView.setColorFilter(isSelected ? getColor(mFragmentColorList.get(position)) : Color.BLACK, PorterDuff.Mode.SRC_ATOP);
+        tabImageView.setColorFilter(isSelected ? getColor(mFragmentColorList.get(position)) : unselectedColorId, PorterDuff.Mode.SRC_ATOP);
         if (isSelected) {
             bg.setColorFilter(ContextCompat.getColor(tabLayout.getContext(), mFragmentColorList.get(position)), PorterDuff.Mode.SRC_ATOP);
             bg.setAlpha(0.2f);
@@ -110,5 +111,9 @@ public class TabBubbleAnimator extends ViewPager.SimpleOnPageChangeListener {
 
     public int getColor(@ColorRes int colorRes) {
         return ContextCompat.getColor(tabLayout.getContext(), colorRes);
+    }
+
+    public void setUnselectedColorId(int unselectedColorId) {
+        this.unselectedColorId = unselectedColorId;
     }
 }

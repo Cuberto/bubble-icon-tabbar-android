@@ -62,7 +62,7 @@ Step 3 : Update build.gradle inside the application module
 ```
     dependencies {
         //consume library
-        implementation 'com.cuberto.bubbleicontabbarandroid:bubbleicontabbarandroid:1.0.1'
+        implementation 'com.cuberto.bubbleicontabbarandroid:bubbleicontabbarandroid:1.0.2'
         ....
     }
 ```
@@ -70,7 +70,7 @@ Sync project and now you can use bubbleicontabbar library
 
 #### Android Archive Library
 
-[Download](https://github.com/Cuberto/bubble-icon-tabbar-android/packages/68239) bubbleicontabbarandroid-1.0.1.aar from assets, add it to your app module `libs` package and add this to your dependencies
+[Download](https://github.com/Cuberto/bubble-icon-tabbar-android/packages/68239) bubbleicontabbarandroid-1.0.2.aar from assets, add it to your app module `libs` package and add this to your dependencies
 ```
     dependencies {
         //your project depencies here
@@ -151,6 +151,12 @@ Create TabBubbleAnimator and tabItem as title, image id and color for each fragm
         tabBubbleAnimator.addTabItem(titles[2], R.drawable.ic_folder, colors[2]);
         tabBubbleAnimator.addTabItem(titles[3], R.drawable.ic_menu, colors[3]);
 ```
+
+You can set color for unselected tabs by calling setUnselectedColorId()
+```
+        tabBubbleAnimator.setUnselectedColorId(Color.BLACK);
+```
+
 Call highlightTab() for 0 position and add tabBubbleAnimator as OnPageChangeListener to ViewPager
 ```
         tabBubbleAnimator.highLightTab(0);
